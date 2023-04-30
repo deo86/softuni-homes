@@ -40,7 +40,7 @@ function softuni_display_single_term( $post_id, $taxonomy ) {
 
 
 /**
- * This functions update the homes post meta for the views count
+ * This function updates the homes post meta for the views count
  *
  * @param [type] $home_id
  * @return void
@@ -65,7 +65,7 @@ function softuni_update_home_views_count( $home_id ) {
 }
 
 /**
- * Homes Enqueue
+ * Properties Enqueue
  */
 function softuni_enqueue_scripts() {
 	wp_enqueue_script( 'softuni-script', plugins_url( 'assets/scripts/scripts.js', __FILE__ ), array( 'jquery' ), 1.1 );
@@ -97,58 +97,25 @@ add_action( 'wp_ajax_nopriv_softuni_home_like', 'softuni_home_like' );
 add_action( 'wp_ajax_softuni_home_like', 'softuni_home_like' );
 
 /**
- * Displays the current user name if the user is logged in
+ * Displays the property details - name, image and URL
  *
  * @return void
  */
-function softuni_display_username() {
+function softuni_display_details() {
     $output = '';
-
-    if ( is_user_logged_in() == true ) {
-        $current_user = wp_get_current_user();
-        $user_display_name = $current_user->data->display_name;
-        $output = 'Hello, ' . $user_display_name . ', enjoy the article!';
-    }
+	var_dump('Hello from the details shortcode');
+	$home_id = get_the_ID();
+	$output = 'Details: ID-' . $home_id . ', name-' . get_the_title() . ', image-' . get_the_post_thumbnail_url() . ', URL-' . get_permalink();
 
     return $output;
 }
-add_shortcode( 'display_username', 'softuni_display_username' );
+add_shortcode( 'display_details', 'softuni_display_details' );
 
 /**
- * It gets the content and counts the number of words
+ * Updates the post meta visits_count
  *
  * @return void
  */
-function softunit_display_post_word_count( $atts ) {
-    $output = '';
-    $word_count = 0;
-    $post_id = '';
-
-    $attributes = shortcode_atts( array(
-		'post_id' => '',
-	), $atts );
-
-    if ( ! empty( $attributes['post_id'] ) ) {
-        $post_id = $attributes['post_id'];
-
-        $post = get_post( $attributes['post_id'] );
-        if ( ! empty( $post ) ) {
-            // @TODO: we have to strip the markup and Gutenberg items so we have a better result.
-            $post_content = $post->post_content;
-            $word_count = str_word_count( $post_content );
-        }
-
-    } else {
-        $output = 'You must add a post_id as an attribute.';
-    }
-
-    if ( ! empty( $word_count ) ) {
-        $output = 'The number of words for the Post ID ' . $post_id . ' is ' . $word_count;
-    }
-
-    return $output;
-}
-add_shortcode( 'display_post_word_count', 'softunit_display_post_word_count' );
 
 function softuni_update_home_visit_count( $post_id = 0 ) {
     if ( empty( $post_id ) ) {
