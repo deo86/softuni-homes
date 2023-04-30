@@ -18,6 +18,18 @@
 	<header class="site-header">
 		<h1 class="site-title"><a href="#">Properties Offers</a></h1>
 	</header>
+	
+	<div class="header-nav-menu">
+		<?php
+		if ( has_nav_menu( 'primary_menu' ) ) {
+				wp_nav_menu(
+						array(
+								'theme_location' => 'primary_menu',
+						)
+				);
+		}
+		?>
+	</div>
 
 	<ul class="properties-listing">
 		<li class="property-card">
