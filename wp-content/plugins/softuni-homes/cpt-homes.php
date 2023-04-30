@@ -41,23 +41,23 @@ function softuni_homes_cpt() {
 add_action( 'init', 'softuni_homes_cpt' );
 
 /**
- * Register a 'field' taxonomy for post type 'home', with a rewrite to match book CPT slug.
+ * Register a 'location' taxonomy for post type 'home', with a rewrite to match book CPT slug.
  *
  * @see register_post_type for registering post types.
  */
-function softuni_homes_field_taxonomy() {
+function softuni_homes_location_taxonomy() {
     $labels = array(
-		'name'              => _x( 'Field', 'taxonomy general name', 'softuni' ),
-		'singular_name'     => _x( 'Field', 'taxonomy singular name', 'softuni' ),
-		'search_items'      => __( 'Search Field', 'softuni' ),
-		'all_items'         => __( 'All Field', 'softuni' ),
-		'parent_item'       => __( 'Parent Field', 'softuni' ),
-		'parent_item_colon' => __( 'Parent Field:', 'softuni' ),
-		'edit_item'         => __( 'Edit Field', 'softuni' ),
-		'update_item'       => __( 'Update Field', 'softuni' ),
-		'add_new_item'      => __( 'Add New Field', 'softuni' ),
-		'new_item_name'     => __( 'New Field Name', 'softuni' ),
-		'menu_name'         => __( 'Field', 'softuni' ),
+		'name'              => _x( 'Location', 'taxonomy general name', 'softuni' ),
+		'singular_name'     => _x( 'Location', 'taxonomy singular name', 'softuni' ),
+		'search_items'      => __( 'Search Location', 'softuni' ),
+		'all_items'         => __( 'All Location', 'softuni' ),
+		'parent_item'       => __( 'Parent Location', 'softuni' ),
+		'parent_item_colon' => __( 'Parent Location:', 'softuni' ),
+		'edit_item'         => __( 'Edit Location', 'softuni' ),
+		'update_item'       => __( 'Update Location', 'softuni' ),
+		'add_new_item'      => __( 'Add New Location', 'softuni' ),
+		'new_item_name'     => __( 'New Location Name', 'softuni' ),
+		'menu_name'         => __( 'Location', 'softuni' ),
 	);
 
     $args = array(
@@ -70,6 +70,41 @@ function softuni_homes_field_taxonomy() {
 	);
 
 
-    register_taxonomy( 'field', 'home', $args );
+    register_taxonomy( 'location', 'home', $args );
 }
-add_action( 'init', 'softuni_homes_field_taxonomy' );
+add_action( 'init', 'softuni_homes_location_taxonomy' );
+
+
+/**
+ * Register a 'neighborhood' taxonomy for post type 'home', with a rewrite to match book CPT slug.
+ *
+ * @see register_post_type for registering post types.
+ */
+function softuni_homes_neighborhood_taxonomy() {
+    $labels = array(
+		'name'              => _x( 'Neighborhood', 'taxonomy general name', 'softuni' ),
+		'singular_name'     => _x( 'Neighborhood', 'taxonomy singular name', 'softuni' ),
+		'search_items'      => __( 'Search Neighborhood', 'softuni' ),
+		'all_items'         => __( 'All Neighborhood', 'softuni' ),
+		'parent_item'       => __( 'Parent Neighborhood', 'softuni' ),
+		'parent_item_colon' => __( 'Parent Neighborhood:', 'softuni' ),
+		'edit_item'         => __( 'Edit Neighborhood', 'softuni' ),
+		'update_item'       => __( 'Update Neighborhood', 'softuni' ),
+		'add_new_item'      => __( 'Add New Neighborhood', 'softuni' ),
+		'new_item_name'     => __( 'New Neighborhood Name', 'softuni' ),
+		'menu_name'         => __( 'Neighborhood', 'softuni' ),
+	);
+
+    $args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+        'show_in_rest'      => true
+	);
+
+
+    register_taxonomy( 'neighborhood', 'home', $args );
+}
+add_action( 'init', 'softuni_homes_neighborhood_taxonomy' );
