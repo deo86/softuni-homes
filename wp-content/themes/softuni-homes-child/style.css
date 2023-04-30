@@ -1,0 +1,17 @@
+/*
+Theme Name:   SoftUni Homes Child theme
+Theme URI:    https://softuni.bg
+Description:  This is SoftUni Homes child theme
+Author:       Deyan Yanchev
+Author URI:   http://example.com
+Template:     softuni-homes
+Version:      1.0.0
+License:      GNU General Public License v2 or later
+License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+Text Domain:  softuni-homes-child
+*/
+
+body {
+    background-color: red;
+}

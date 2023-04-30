@@ -146,3 +146,19 @@ function change_title_text( $title ) {
     return $title . ' property' ;
 }
 add_filter( 'the_title', 'change_title_text', 12 );
+
+// Demonstrating another append to the title with a class
+
+class My_Filter {
+	protected $my_string = '_class';
+	public function __construct() {
+		add_filter( 'the_title', array( $this, 'change_title_text2' ) );
+	}
+	public function change_title_text2() {
+
+		var_dump( get_the_title() );
+
+		//return get_the_title() . ' property2' ;
+	}
+}
+//$createdObject = new My_Filter();
