@@ -103,7 +103,7 @@ add_action( 'wp_ajax_softuni_home_like', 'softuni_home_like' );
  */
 function softuni_display_details() {
     $output = '';
-	var_dump('Hello from the details shortcode');
+	//var_dump('Hello from the details shortcode');
 	$home_id = get_the_ID();
 	$output = 'Details: ID-' . $home_id . ', name-' . get_the_title() . ', image-' . get_the_post_thumbnail_url() . ', URL-' . get_permalink();
 
