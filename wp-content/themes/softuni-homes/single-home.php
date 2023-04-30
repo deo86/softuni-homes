@@ -35,7 +35,7 @@
 						<?php if ( has_post_thumbnail() ) :  ?>
 							<?php the_post_thumbnail( 'home-thumbnail' ); ?>
 						<?php else : ?>
-							<img src="https://i.imgur.com/ZbILm3F.png" alt="default image">
+							<img src="../../wp-content/themes/softuni-homes/assets/images/bedroom.jpg" width="198" height="118" alt="property image">
 						<?php endif; ?>
 					</div>
 				</div>
@@ -44,7 +44,7 @@
 			</aside>
 		</div>
 
-		<h2 class="section-heading">Other properties from the company:</h2>
+		<h2 class="section-heading">Other properties from the city:</h2>
 
 		<?php softuni_update_home_visit_count( get_the_ID() ) ?>
 
