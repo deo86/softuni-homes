@@ -133,17 +133,16 @@ function softuni_update_home_visit_count( $post_id = 0 ) {
     }
 }
 
-// Old code from the initial sessions
  /**
-  * Undocumented function
+  * Adds property text to the title
   *
   * @param [type] $title
   * @return void
   */
-  function change_title_text( $title ) {
+function change_title_text( $title ) {
 
-    var_dump( $title );
+    //var_dump( $title );
 
-    return $title . ' 1st function' ;
+    return $title . ' property' ;
 }
-// add_filter( 'the_title', 'change_title_text', 10 );
+add_filter( 'the_title', 'change_title_text', 12 );
